@@ -55,17 +55,17 @@
     }
 
     function pushWDays(wd1, wd2) {
-        var act = false, i, wDayTokens = [ 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ];
+        var act = false, i, wDayTokens = [ 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ];
 
         for (i = 0; i < wDayTokens.length; i += 1) {
             if (!act) {
                 if (wDayTokens[i] === wd1.toLowerCase()) {
-                    wDays.push(wDayTokens[i]);
+                    wDays.push(i);
                     if (!wd2) return;
                     act = true;
                 }
             } else {
-                wDays.push(wDayTokens[i]);
+                wDays.push(i);
                 if (wDayTokens[i] === wd2.toLowerCase()) {
                     return;
                 } else {

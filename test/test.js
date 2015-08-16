@@ -1,5 +1,5 @@
 
-var parser = require("../lib/openhours").parser;
+var parser = require('../lib/openHoursParser').parser;
 
 function exec(input) {
     console.log('input: ' + input);

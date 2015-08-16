@@ -8,7 +8,7 @@ var parser = new Parser(grammar);
 
 var parserSource = parser.generate({moduleName: "openHoursParser"});
 
-fs.writeFile('lib/openhours.js', parserSource);
+fs.writeFile('lib/openHoursParser.js', parserSource);
 
 
 
