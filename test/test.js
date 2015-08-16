@@ -16,5 +16,7 @@ function exec(input) {
 exec('mon-fri 8:00-16:00');
 exec('Mon-Fri 8-16');
 exec('Mon-Wed 8-12, Thu-Sat 9-13');
+exec('Mon 0:30-1:30');
+exec('Mon 23:30-1:30');
 exec('invalid string');
 

@@ -41,20 +41,27 @@
     }
 
     function pushTime(start, end) {
+        var eMin = timeStrToMin(end),
+            sMin = timeStrToMin(start);
+
+		if (eMin < sMin) {
+			eMin += 24*60;
+		}
         if (end) {
-            times.push({start: start, end: end});
+            times.push({start: sMin, end: eMin});
         } else {
-            times.push({start: start});
+            times.push({start: sMin});
         }
     }
 
     function pushWDays(wd1, wd2) {
-        var act = false, wDayTokens = [ "mon", "tue", "wed", "thu", "fri", "sat", "sun" ];
+        var act = false, i, wDayTokens = [ 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ];
 
-        for (var i = 0; i < wDayTokens.length; i += 1) {
+        for (i = 0; i < wDayTokens.length; i += 1) {
             if (!act) {
                 if (wDayTokens[i] === wd1.toLowerCase()) {
                     wDays.push(wDayTokens[i]);
+                    if (!wd2) return;
                     act = true;
                 }
             } else {
@@ -70,7 +77,10 @@
         }
     }
 
-
+	function timeStrToMin(tim) {
+		var arr = tim.split(':');
+		return 60 * parseInt(arr[0]) + ((arr.length > 1) ? parseInt(arr[1]) : 0);
+	}
 %}
 
 %lex
@@ -105,7 +115,7 @@ wdt
     : WDA '-' WDA per
         { pushWDays($1, $3); fillTimes(); }
     | WDA per
-        { pushWDay($1); fillTimes(); }
+        { pushWDays($1); fillTimes(); }
     ;
 
 per
