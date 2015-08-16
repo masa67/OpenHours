@@ -7,6 +7,13 @@ A simple [Jison](https://github.com/zaach/jison)-based parser to parse strings t
  * "Mon-Fri 8:00-16:00"
  * "mon-wed 8-14"
  * "mon-wed 8-14, thu 9-12"
+ * "Thu 8-16"
+
+# Build
+
+Install jison locally (`npm install jison`).
+
+`$node build.js` generates `lib/openhours.js` from `src/openhours.jison`.
 
 # License
 
