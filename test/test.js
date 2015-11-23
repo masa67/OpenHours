@@ -1,7 +1,9 @@
 
 var openHoursParser = require('../lib/openHoursParser').parser;
 var moment = require('../node_modules/moment');
-var openHours = require('../lib/openhours.js').openHours;
+
+var fs = require('fs');
+eval(fs.readFileSync('lib/openhours.js').toString());
 
 function exec(input) {
     console.log('input: ' + input);
