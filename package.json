@@ -21,6 +21,6 @@
   "homepage": "https://github.com/masa67/OpenHours",
   "dependencies": {
     "jison": "^0.4.15",
-    "moment": "^2.10.6"
+    "moment-timezone": "^0.4.1"
   }
 }
